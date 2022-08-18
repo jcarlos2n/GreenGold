@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string("state");
             $table->string("postal_code");
             $table->string("country");
+            $table->unsignedBigInteger("user_id")->nullable(false);
+            $table->foreign("user_id")->references('id')->on("users")->onDelete("cascade");
             $table->timestamps();
         });
     }

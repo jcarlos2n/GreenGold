@@ -15,7 +15,12 @@ return new class extends Migration
     {
         Schema::create('payment_method', function (Blueprint $table) {
             $table->id();
+            $table->string("method");
+            $table->string("method_number");
+            $table->unsignedBigInteger("user_id")->nullable(false);
+            $table->foreign("user_id")->references('id')->on("users")->onDelete("cascade");
             $table->timestamps();
+
         });
     }
 
