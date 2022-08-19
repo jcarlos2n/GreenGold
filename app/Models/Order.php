@@ -17,8 +17,8 @@ class Order extends Model
         return $this->belongsToMany(Product::class);
     }
 
-    public function purchases()
+    public function purchase()
     {
-        return $this->morphOne(Purchase::class, 'purchase');
+        return $this->hasOne(Purchase::class);
     }
 }

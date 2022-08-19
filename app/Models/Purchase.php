@@ -10,6 +10,6 @@ class Purchase extends Model
     use HasFactory;
 
     public function orders(){
-        return $this->morphTo();
+        return $this->belongsTo(Order::class, 'foreign_key');
     }
 }
