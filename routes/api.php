@@ -3,6 +3,7 @@
 use App\Http\Controllers\AddressController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MethodController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\OriginController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Http\Request;
@@ -59,6 +60,14 @@ Route::group(["middleware" => ["jwt.auth" , "isSuperAdmin"]], function() {
 //PRODUCT ENDPOINTS
 Route::group(["middleware" => ["jwt.auth" , "isSuperAdmin"]], function() {
     Route::post('/product/add', [ProductController::class, 'addProduct']);
+    // Route::post('/user/super_admin_delete/{id}', [UserController::class, 'deleteSuperAdminRole']);
+    // Route::post('/user/add_admin/{id}', [UserController::class, 'addAdminRole']);
+    // Route::post('/user/delete_admin/{id}', [UserController::class, 'deleteAdminRole']);
+});
+
+//PRODUCT ENDPOINTS
+Route::group(["middleware" => ["jwt.auth"]], function() {
+    Route::post('/order/create', [OrderController::class, 'createOrder']);
     // Route::post('/user/super_admin_delete/{id}', [UserController::class, 'deleteSuperAdminRole']);
     // Route::post('/user/add_admin/{id}', [UserController::class, 'addAdminRole']);
     // Route::post('/user/delete_admin/{id}', [UserController::class, 'deleteAdminRole']);
