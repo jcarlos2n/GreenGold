@@ -17,9 +17,9 @@ return new class extends Migration
             $table->id();
             $table->string("variety");
             $table->string("description");
-            $table->integer("price");
+            $table->decimal("price", 5,2);
             $table->string("image");
-            $table->boolean('status');
+            $table->boolean('status')->default(true);
             $table->unsignedBigInteger("origin_id")->nullable(false);
             $table->foreign("origin_id")->references('id')->on("origins")->onDelete("cascade");
             $table->timestamps();
