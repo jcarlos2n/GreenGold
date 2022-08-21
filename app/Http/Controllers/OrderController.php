@@ -82,29 +82,7 @@ class OrderController extends Controller
             }
             $order->products()->attach($productId);
             $product->orders()->attach($orderId);
-            // $product = Product::query()
-            //     ->where('id', '=', $productId)
-            //     ->first()->id;
-
-            
-
-            
-            // $order = Order::query()
-            //     ->where('id', '=', $orderId)
-            //     ->first()->id;
-
-            // if (!$order) {
-            //     return [
-            //         'success' => true,
-            //         'message' => 'These order doesnt exist'
-            //     ];
-            // }
-            
-            // $orderproduct = new Order();
-            // $orderproduct->order_id = $orderId;
-            // $orderproduct->product_id = $productId;
-            // $orderproduct->save();
-
+          
             return response()->json([
                 'success' => true,
                 'message' => "Order created succesfully"
