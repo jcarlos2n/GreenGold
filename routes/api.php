@@ -68,7 +68,7 @@ Route::group(["middleware" => ["jwt.auth" , "isSuperAdmin"]], function() {
 //PRODUCT ENDPOINTS
 Route::group(["middleware" => ["jwt.auth"]], function() {
     Route::post('/order/create', [OrderController::class, 'createOrder']);
-    // Route::post('/user/super_admin_delete/{id}', [UserController::class, 'deleteSuperAdminRole']);
+    Route::post('/order/add', [OrderController::class, 'addProductToOrder']);
     // Route::post('/user/add_admin/{id}', [UserController::class, 'addAdminRole']);
     // Route::post('/user/delete_admin/{id}', [UserController::class, 'deleteAdminRole']);
 });
