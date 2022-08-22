@@ -6,6 +6,7 @@ use App\Http\Controllers\MethodController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\OriginController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\PurchaseController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -60,7 +61,7 @@ Route::group(["middleware" => ["jwt.auth" , "isSuperAdmin"]], function() {
 //PRODUCT ENDPOINTS
 Route::group(["middleware" => ["jwt.auth" , "isSuperAdmin"]], function() {
     Route::post('/product/add', [ProductController::class, 'addProduct']);
-    // Route::post('/user/super_admin_delete/{id}', [UserController::class, 'deleteSuperAdminRole']);
+    Route::get('/product', [ProductController::class, 'getProducts']);
     // Route::post('/user/add_admin/{id}', [UserController::class, 'addAdminRole']);
     // Route::post('/user/delete_admin/{id}', [UserController::class, 'deleteAdminRole']);
 });
@@ -69,6 +70,14 @@ Route::group(["middleware" => ["jwt.auth" , "isSuperAdmin"]], function() {
 Route::group(["middleware" => ["jwt.auth"]], function() {
     Route::post('/order/create', [OrderController::class, 'createOrder']);
     Route::post('/order/add', [OrderController::class, 'addProductToOrder']);
+    // Route::post('/user/add_admin/{id}', [UserController::class, 'addAdminRole']);
+    // Route::post('/user/delete_admin/{id}', [UserController::class, 'deleteAdminRole']);
+});
+
+//PURCHASE ENDPOINTS
+Route::group(["middleware" => ["jwt.auth"]], function() {
+    Route::post('/purchase/create/{id}', [PurchaseController::class, 'createPurchase']);
+    // Route::post('/order/add', [OrderController::class, 'addProductToOrder']);
     // Route::post('/user/add_admin/{id}', [UserController::class, 'addAdminRole']);
     // Route::post('/user/delete_admin/{id}', [UserController::class, 'deleteAdminRole']);
 });

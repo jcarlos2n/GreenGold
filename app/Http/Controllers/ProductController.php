@@ -61,4 +61,29 @@ class ProductController extends Controller
                 ],500);
         }
     }
+
+    public function getProducts(){
+        try {
+        Log::info("Getting products");
+
+        $products = Product::query("products")
+        ->get()
+        ->toArray();
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Products retrieve succesfully',
+            'data' => $products
+        ],200);
+
+        } catch (\Exception $exception) {
+            Log::error("Error getting products: " . $exception->getMessage());
+
+            return response()->json([
+                'success' => false,
+                'message' => 'Error getting products. ' . $exception->getMessage(),
+
+            ], 500);
+        }
+    }
 }
