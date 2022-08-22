@@ -80,7 +80,7 @@ class OrderController extends Controller
                 ];
             }
             $order->products()->attach($productId);
-            $product->orders()->attach($orderId);
+            // $product->orders()->attach($orderId);
           
             return response()->json([
                 'success' => true,
