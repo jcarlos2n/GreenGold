@@ -86,4 +86,35 @@ class ProductController extends Controller
             ], 500);
         }
     }
+
+    public function getProductById($id){
+        try {
+            $product = Product::query()
+            ->where('id' , '=', $id)
+            ->get();
+
+            if (!$product) {
+                return [
+                    'success' => true,
+                    "message" => "These product doesn't exist"
+                ];
+            }
+            Log::info("Getting product");
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Product retrieve successfully',
+                'data' => $product
+            ], 200);
+
+        } catch (\Exception $exception) {
+
+            Log::error("Error getting product: " . $exception->getMessage());
+            return response()->json([
+                'success' => false,
+                'message' => 'Error getting product' . $exception->getMessage(),
+
+            ], 500);
+        }
+    }
 }
