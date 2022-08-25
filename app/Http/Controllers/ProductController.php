@@ -67,6 +67,7 @@ class ProductController extends Controller
         Log::info("Getting products");
 
         $products = Product::query("products")
+        ->where("status", "=", 1)
         ->get()
         ->toArray();
 
@@ -114,6 +115,102 @@ class ProductController extends Controller
                 'success' => false,
                 'message' => 'Error getting product' . $exception->getMessage(),
 
+            ], 500);
+        }
+    }
+
+    public function updateProduct(Request $request, $id){
+        try {
+            $product = Product::query()
+            ->where('id', '=', $id)
+            ->first();
+
+            if (!$product) {
+                return[
+                    'success' => true,
+                    'message' => 'These product doesn´t exist'
+                ];
+            }
+
+            Log::info("Updating Product");
+
+            $product = Product::find($id);
+            if (!$product) {
+                return response()->json([
+                    "success" => true,
+                    "message" => "Product doesnt exist"
+                ], 404);
+            }
+
+            $variety = $request->input('variety');
+            $description = $request->input('description');
+            $price = $request->input('price');
+            $image = $request->input('image');
+            $origin = $request->input('origin_id');
+
+            $product->variety = $variety;
+            $product->description = $description;
+            $product->price = $price;
+            $product->image = $image;
+            $product->origin_id = $origin;
+
+            $product->save();
+
+            return response()->json([
+                "success" => true,
+                "message" => "Product updated"
+            ], 200);
+
+        } catch (\Exception $exception) {
+            
+            Log::error("Error updating product: " . $exception->getMessage());
+            return response()->json([
+                'success' => false,
+                'message' => 'Error updating product' . $exception->getMessage(),
+            ], 500);
+        }
+    }
+
+    public function changeStatusProduct (Request $request, $id){
+        try {
+            $product = Product::query()
+            ->where('id', '=', $id)
+            ->first();
+
+            if (!$product) {
+                return[
+                    'success' => true,
+                    'message' => 'These product doesn´t exist'
+                ];
+            }
+
+            Log::info("Change status Product");
+
+            $product = Product::find($id);
+            if (!$product) {
+                return response()->json([
+                    "success" => true,
+                    "message" => "Product doesn't exist"
+                ], 404);
+            }
+
+            $status = $request->input('status');
+            
+            $product->status = $status;
+
+            $product->save();
+
+            return response()->json([
+                "success" => true,
+                "message" => "Status product changed"
+            ], 200);
+
+        } catch (\Exception $exception) {
+            
+            Log::error("Error changing status product: " . $exception->getMessage());
+            return response()->json([
+                'success' => false,
+                'message' => 'Error changing status product' . $exception->getMessage(),
             ], 500);
         }
     }

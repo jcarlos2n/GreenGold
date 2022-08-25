@@ -25,7 +25,7 @@ Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 
 Route::group(["middleware" => ["jwt.auth"]], function () {
-    Route::get('/me', [AuthController::class, 'me']);
+    Route::get('/profile', [AuthController::class, 'me']);
     Route::post('/logout', [AuthController::class, 'logout']);
 });
 
@@ -67,7 +67,8 @@ Route::get('/product/{id}', [ProductController::class, 'getProductById']);
 
 Route::group(["middleware" => ["jwt.auth", "isSuperAdmin"]], function () {
     Route::post('/product/add', [ProductController::class, 'addProduct']);
-    // Route::post('/user/add_admin/{id}', [UserController::class, 'addAdminRole']);
+    Route::put('/product/update/{id}', [ProductController::class, 'updateProduct']);
+    Route::put('/product/status/{id}', [ProductController::class, 'changeStatusProduct']);
     // Route::post('/user/delete_admin/{id}', [UserController::class, 'deleteAdminRole']);
 });
 
