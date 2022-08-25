@@ -58,11 +58,11 @@ class AuthController extends Controller
             'token' => $jwt_token
         ]);
     }
-    public function me(Request $request)
+    public function me()
     {
-         $this->validate($request, [
-            'token' => 'required'
-        ]);
+        //  $this->validate($request, [
+        //     'token' => 'required'
+        // ]);
         return response()->json(auth()->user());
     }
     public function logout(Request $request)
