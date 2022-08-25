@@ -60,9 +60,6 @@ class AuthController extends Controller
     }
     public function me()
     {
-        //  $this->validate($request, [
-        //     'token' => 'required'
-        // ]);
         return response()->json(auth()->user());
     }
     public function logout(Request $request)
