@@ -99,4 +99,61 @@ class OrderController extends Controller
             );
         }
     }
+
+    public function deleteProducttoOrder(Request $request){
+        try {
+            Log::info("Delete product of Order");
+            $validator = Validator::make($request->all(), [
+                'order_id' => 'required',
+                'product_id' => 'required',
+            ]);
+
+            if ($validator->fails()) {
+                return response()->json(
+                    [
+                        "success" => false,
+                        "message" => $validator->errors()
+                    ],
+                    400
+                );
+            };
+
+            $orderId = $request->input("order_id");
+            $order = Order::find($orderId);
+            
+            if (!$order) {
+                return [
+                    'success' => true,
+                    'message' => 'These order doesnt exist'
+                ];
+            }
+
+            $productId = $request->input('product_id');
+            $product = Product::find($productId);
+
+            if (!$product) {
+                return [
+                    'success' => true,
+                    'message' => 'These product doesnt exist'
+                ];
+            }
+            $order->products()->detach($productId);
+          
+            return response()->json([
+                'success' => true,
+                'message' => "Product added to Order succesfully"
+            ], 200);
+
+        } catch (\Exception $exception) {
+            Log::error("Error deleting product to Order: " . $exception->getMessage());
+
+            return response()->json(
+                [
+                    'success' => false,
+                    'message' => "Error deleting product to Order"
+                ],
+                500
+            );
+        }
+    }
 }
