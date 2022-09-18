@@ -30,7 +30,7 @@ Route::group(["middleware" => ["jwt.auth"]], function () {
 });
 
 //ADMIN ENDPOINTS
-Route::group(["middleware" => ["jwt.auth"]], function () {
+Route::group(["middleware" => ["jwt.auth", "isSuperAdmin"]], function () {
     Route::post('/user/super_admin/{id}', [UserController::class, 'addSuperAdminRole']);
     Route::post('/user/super_admin_delete/{id}', [UserController::class, 'deleteSuperAdminRole']);
     Route::post('/user/add_admin/{id}', [UserController::class, 'addAdminRole']);
@@ -40,6 +40,9 @@ Route::group(["middleware" => ["jwt.auth"]], function () {
 //ADDRESS ENDPOINTS
 Route::group(["middleware" => ["jwt.auth"]], function () {
     Route::post('/user/address/add', [AddressController::class, 'addAddress']);
+    Route::get('/user/address/get', [AddressController::class, 'getAddress']);
+    Route::put('/user/address/update/{id}', [AddressController::class, 'updateAddress']);
+    Route::get('/user/address/delete/{id}', [AddressController::class, 'deleteAddress']);
 });
 
 //Payments Methods ENDPOINTS
