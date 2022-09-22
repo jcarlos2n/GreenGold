@@ -42,7 +42,7 @@ Route::group(["middleware" => ["jwt.auth"]], function () {
     Route::post('/user/address/add', [AddressController::class, 'addAddress']);
     Route::get('/user/address/get', [AddressController::class, 'getAddress']);
     Route::put('/user/address/update/{id}', [AddressController::class, 'updateAddress']);
-    Route::get('/user/address/delete/{id}', [AddressController::class, 'deleteAddress']);
+    Route::delete('/user/address/delete/{id}', [AddressController::class, 'deleteAddress']);
 });
 
 //Payments Methods ENDPOINTS
