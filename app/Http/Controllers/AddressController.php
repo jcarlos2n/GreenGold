@@ -88,6 +88,39 @@ class AddressController extends Controller
         }
     }
 
+    public function getAddressById($id)
+    {
+        try {
+
+            $user_id = auth()->user()->id;
+            $address =  Address::query()
+                ->where('id', '=', $id)
+                ->where('user_id', '=', $user_id)
+                ->get();
+                if ($address == '') {
+                    return [
+                        'success' => true,
+                        "message" => "These address doesn exist"
+                    ];
+                }else{
+                    return response()->json([
+                        'success' => true,
+                        'message' => 'Addresses retrieve successfully',
+                        'data' => $address
+                    ], 200);
+                    Log::info("Getting address");
+                }
+
+        } catch (\Exception $exception) {
+
+            Log::error("Error deleting address: " . $exception->getMessage());
+            return response()->json([
+                'success' => false,
+                'message' => 'Error deleting address' . $exception->getMessage(),
+            ], 500);
+        }
+    }
+
     public function updateAddress(Request $request, $id){
         try {
             $user_id = auth()->user()->id;
@@ -178,4 +211,6 @@ class AddressController extends Controller
             ], 500);
         }
     }
+
+    
 }
