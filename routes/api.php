@@ -7,6 +7,7 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\OriginController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\PurchaseController;
+use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -35,7 +36,12 @@ Route::group(["middleware" => ["jwt.auth", "isSuperAdmin"]], function () {
     Route::post('/user/super_admin_delete/{id}', [UserController::class, 'deleteSuperAdminRole']);
     Route::post('/user/add_admin/{id}', [UserController::class, 'addAdminRole']);
     Route::post('/user/delete_admin/{id}', [UserController::class, 'deleteAdminRole']);
+}); 
+
+Route::group(["middleware" => ["jwt.auth"]], function () {
+    Route::get('/user/getrole', [UserController::class, 'getRole']);
 });
+
 
 //ADDRESS ENDPOINTS
 Route::group(["middleware" => ["jwt.auth"]], function () {

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\DB;
 use App\Models\User;
 
 class UserController extends Controller
@@ -116,6 +117,34 @@ class UserController extends Controller
                 [
                     'success' => false,
                     'message' => "Error adding superadmin role to user"
+                ],
+                500
+            );
+        }
+    }
+
+    public function getRole() {
+        try {
+            Log::info("Getting Role");
+
+            $userId = auth()->user()->id;
+
+            $role= DB::table('role_user')
+            ->where('user_id', '=', $userId)
+            ->get();
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Role retrieved successfully',
+                'data' => $role
+            ],200);
+        } catch (\Exception $exception) {
+            Log::error("Error getting roles: " . $exception->getMessage());
+
+            return response()->json(
+                [
+                    'success' => false,
+                    'message' => "Error getting roles: " . $exception->getMessage()
                 ],
                 500
             );
