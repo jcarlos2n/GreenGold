@@ -36,6 +36,7 @@ Route::group(["middleware" => ["jwt.auth", "isSuperAdmin"]], function () {
     Route::post('/user/super_admin_delete/{id}', [UserController::class, 'deleteSuperAdminRole']);
     Route::post('/user/add_admin/{id}', [UserController::class, 'addAdminRole']);
     Route::post('/user/delete_admin/{id}', [UserController::class, 'deleteAdminRole']);
+    Route::get('/user/getusers', [AuthController::class, 'getUsers']);
 }); 
 
 Route::group(["middleware" => ["jwt.auth"]], function () {
