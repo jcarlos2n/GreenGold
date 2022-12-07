@@ -7,7 +7,7 @@ ___
 <h5 align="center">Back-End realizado como práctica personal utilizando Laravel tras finalizar el Bootcamp de GeeksHubs. Por José Carlos Núñez. </h5>
 
 <p align="center">
-    <a href="#about">About</a> ·
+    <a href="#About">About</a> ·
     <a href="#Usage">Usage</a> ·
     <a href="#Features">Features</a>
 </p>
@@ -81,7 +81,7 @@ Ahora utilizaremos un End-Point de administrador, el cual nos muestra todos los 
 ----
 
 ## Features
-
+Proyecto realizado con las siguientes tencologías:<br>
 <p align="center"><img src="https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white" > · <img src="https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white" > · <img src="https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=JSON%20web%20tokens&logoColor=white" > · <img src="https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=Postman&logoColor=white"> · <img src="https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white"></p>
 
 
