@@ -16,12 +16,14 @@ ___
 
 ## About
 
-El Back-End que he desarrollado con Laravel, el cual consiste en un E-commerce de venta de productos tropicales, en especial aguacates, compuesto de varios End-points y dinstintas utilidades así como CRUD.
+El Back-End que he desarrollado con Laravel, el cual consiste en un E-commerce de venta de productos tropicales, en especial aguacates.<br> 
+Compuesto de varios End-points y dinstintas utilidades así como CRUD. Es un trabajo aún incompleto pero al que le estoy dedicando tiempo por que ser algo muy completo.
 <p align="center">
 <img src="Images/tablas.png" width= 500><br>
 <sub> Tablas y relaciones</sub>
 </p>
-___
+
+----
 
 ## Usage
 
