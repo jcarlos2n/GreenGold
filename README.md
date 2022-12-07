@@ -56,6 +56,35 @@ Profile, para obtener los datos de usuario, deberemos introducir el token  devue
 <sub> Profile</sub>
 </p>
 
+<p><strong>End-Points de Administrador</strong></p>
+En primer lugar podemos ver el End-point en el que podremos añadir nuevos admin mediante su ID.
+<p align="center">
+<img src="Images/addsuper.png" width= 500><br>
+<sub> Add super admin</sub>
+</p>
+
+El siguiente End-point consiste en eliminar un admin mediante su ID.
+
+<p align="center">
+<img src="Images/deletesuper.png" width= 500><br>
+<sub> Delete super admin</sub>
+</p>
+
+Ahora utilizaremos un End-Point de administrador, el cual nos muestra todos los usuarios registrador en nuestra BBDD.
+
+<p align="center">
+<img src="Images/getprofiles.png" width= 500><br>
+<sub> Perfiles de usuarios</sub>
+</p>
+
+
+----
+
+## Features
+
+<p align="center"><img src="https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white" > · <img src="https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white" > · <img src="https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=JSON%20web%20tokens&logoColor=white" > · <img src="https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=Postman&logoColor=white"> · <img src="https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white"></p>
+
+
 
 
 
