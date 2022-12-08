@@ -77,6 +77,35 @@ Ahora utilizaremos un End-Point de administrador, el cual nos muestra todos los 
 <sub> Perfiles de usuarios</sub>
 </p>
 
+<p><strong>End-Points de Direcciones</strong></p>
+
+End-Points para crear, modificar, leer o eliminar la información de la dirección de envío de cada usuario.
+
+Crear dirección, para ello introducimos la información necesaria y el token.
+<p align="center">
+<img src="Images/addaddress.png" width= 500><br>
+<sub> Añadir dirección</sub>
+</p>
+
+Leer direcciones, para ello debemos introducir el token.
+<p align="center">
+<img src="Images/getaddress.png" width= 500><br>
+<sub> Leer direcciones registradas</sub>
+</p>
+
+Modificar direccion que tengamos registrada. Necesitaremos token y ID de la direccoón a modificar.
+
+<p align="center">
+<img src="Images/updateaddress.png" width= 500><br>
+<sub> Modificar dirección</sub>
+</p>
+
+Eliminar dirección. Para ello necesitamos token y ID de la direccíon que queramos eliminar.
+
+<p align="center">
+<img src="Images/deleteaddress.png" width= 500><br>
+<sub> Eliminar dirección</sub>
+</p>
 
 ----
 
