@@ -19,7 +19,7 @@ ___
 El Back-End que he desarrollado con Laravel, el cual consiste en un E-commerce de venta de productos tropicales, en especial aguacates.<br> 
 Compuesto de varios End-points y dinstintas utilidades así como CRUD. Es un trabajo aún incompleto pero al que le estoy dedicando tiempo por que ser algo muy completo.
 <p align="center">
-<img src="Images/tablas.png" width= 500><br>
+<img src="Images/tablas.png" width= 550><br>
 <sub> Tablas y relaciones</sub>
 </p>
 
@@ -33,47 +33,47 @@ Debido a que Heroku ha pasado a ser de pago, para utilizarla debes descargar el 
 En primer lugar podemos ver el End-point de register.
 
 <p align="center">
-<img src="Images/register.png" width= 500><br>
+<img src="Images/register.png" width= 550><br>
 <sub> Register</sub>
 </p>
 
 
 LogIn, para hacer el login, debemos introducir email y password. El login nos devolverá un token con el que podremos utilizar otros End-Points.
 <p align="center">
-<img src="Images/login.png" width= 500><br>
+<img src="Images/login.png" width= 550><br>
 <sub> Login</sub>
 </p>
 
 LogOut, para hacer efectivo el LogOut, debemos introducir el token devuelto en el Login como Bearer Token.
 <p align="center">
-<img src="Images/logout.png" width= 500><br>
+<img src="Images/logout.png" width= 550><br>
 <sub> LogOut</sub>
 </p>
 
 Profile, para obtener los datos de usuario, deberemos introducir el token  devuelto en el Login como Bearer Token.
 <p align="center">
-<img src="Images/profile.png" width= 500><br>
+<img src="Images/profile.png" width= 550><br>
 <sub> Profile</sub>
 </p>
 
 <p><strong>End-Points de Administrador</strong></p>
 En primer lugar podemos ver el End-point en el que podremos añadir nuevos admin mediante su ID.
 <p align="center">
-<img src="Images/addsuper.png" width= 500><br>
+<img src="Images/addsuper.png" width= 550><br>
 <sub> Add super admin</sub>
 </p>
 
 El siguiente End-point consiste en eliminar un admin mediante su ID.
 
 <p align="center">
-<img src="Images/deletesuper.png" width= 500><br>
+<img src="Images/deletesuper.png" width= 550><br>
 <sub> Delete super admin</sub>
 </p>
 
 Ahora utilizaremos un End-Point de administrador, el cual nos muestra todos los usuarios registrador en nuestra BBDD.
 
 <p align="center">
-<img src="Images/getprofiles.png" width= 500><br>
+<img src="Images/getprofiles.png" width= 550><br>
 <sub> Perfiles de usuarios</sub>
 </p>
 
@@ -83,27 +83,27 @@ End-Points para crear, modificar, leer o eliminar la información de la direcci�
 
 Crear dirección, para ello introducimos la información necesaria y el token.
 <p align="center">
-<img src="Images/addaddress.png" width= 500><br>
+<img src="Images/addaddress.png" width= 550><br>
 <sub> Añadir dirección</sub>
 </p>
 
 Leer direcciones, para ello debemos introducir el token.
 <p align="center">
-<img src="Images/getaddress.png" width= 500><br>
+<img src="Images/getaddress.png" width= 550><br>
 <sub> Leer direcciones registradas</sub>
 </p>
 
 Modificar direccion que tengamos registrada. Necesitaremos token y ID de la direccoón a modificar.
 
 <p align="center">
-<img src="Images/updateaddress.png" width= 500><br>
+<img src="Images/updateaddress.png" width= 550><br>
 <sub> Modificar dirección</sub>
 </p>
 
 Eliminar dirección. Para ello necesitamos token y ID de la direccíon que queramos eliminar.
 
 <p align="center">
-<img src="Images/deleteaddress.png" width= 500><br>
+<img src="Images/deleteaddress.png" width= 550><br>
 <sub> Eliminar dirección</sub>
 </p>
 
